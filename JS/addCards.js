@@ -1,5 +1,6 @@
 //fetch all data
 function loadPhones(limit) {
+	toggleSpinner(true); // start
 	fetch("https://openapi.programming-hero.com/api/ai/tools")
 		.then((response) => response.json())
 		.then((data) => sortData(data.data.tools, limit));
@@ -21,6 +22,7 @@ function sortData(ais, showNumber) {
 	for (const ai of ais) {
 		addCard(ai.image, ai.name, ai.features, ai.published_in);
 	}
+	toggleSpinner(false); // end
 }
 
 function addCard(image, name, features, published_in) {
@@ -54,6 +56,15 @@ function addCard(image, name, features, published_in) {
 `;
 	cards.appendChild(card);
 }
+
+const toggleSpinner = (isLoading) => {
+	const loaderSection = document.getElementById("loader");
+	if (isLoading) {
+		loaderSection.classList.remove("d-none");
+	} else {
+		loaderSection.classList.add("d-none");
+	}
+};
 
 // start with 6 AIs
 loadPhones(6);
