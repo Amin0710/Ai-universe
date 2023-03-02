@@ -1,9 +1,23 @@
 //fetch all data
-fetch("https://openapi.programming-hero.com/api/ai/tools")
-	.then((response) => response.json())
-	.then((data) => sortData(data.data.tools));
+function loadPhones(limit) {
+	fetch("https://openapi.programming-hero.com/api/ai/tools")
+		.then((response) => response.json())
+		.then((data) => sortData(data.data.tools, limit));
+}
 
-function sortData(ais) {
+function sortData(ais, showNumber) {
+	const showAll = document.getElementById("show-all");
+	if (showNumber !== undefined || null) {
+		// display 6 ais only
+		if (ais.length > showNumber) {
+			ais = ais.slice(0, showNumber);
+			showAll.classList.remove("d-none");
+		}
+	} else {
+		ais = ais.slice(6, ais.length);
+		showAll.classList.add("d-none"); // hide button after show all
+	}
+
 	for (const ai of ais) {
 		addCard(ai.image, ai.name, ai.features, ai.published_in);
 	}
@@ -21,7 +35,7 @@ function addCard(image, name, features, published_in) {
 			<ol class="card-text">
 				<li>${features[0]}</li>
 				<li>${features[1]}</li>
-				<li>${features[2] ? features[2] : "No More Features"}</li>
+				<li>${features[2] ? features[2] : "No More Features"}</li> 
 			</ol>
 		</div>
 		<div class="d-flex justify-content-center">
@@ -40,3 +54,11 @@ function addCard(image, name, features, published_in) {
 `;
 	cards.appendChild(card);
 }
+
+// start with 6 AIs
+loadPhones(6);
+
+// Once click show all --> show all
+document.getElementById("btn-show-all").addEventListener("click", function () {
+	loadPhones();
+});
