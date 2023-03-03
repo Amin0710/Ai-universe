@@ -5,6 +5,9 @@ ol {
 p {
 	font-weight: 500;
 }
+.btn {
+	font-weight: 600 !important;
+}
 
 /* card images */
 .card_img_holder {
