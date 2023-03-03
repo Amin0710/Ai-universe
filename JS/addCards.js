@@ -4,25 +4,43 @@ function addCard(image, name, features, published_in) {
 	card.classList.add("col");
 	card.innerHTML = `
     <div class="card h-100">
-    <div class="card_img_holder"><img src="${image}" class="card-img-top rounded-3" alt="..." /></div>
+		<div class="card_img_holder">
+			<img src="${image}" class="card-img-top rounded-3" alt="..." />
+		</div>
 		<div class="card-body">
 			<h5 class="card-title">Features</h5>
 			<ol class="card-text">
 				<li>${features[0]}</li>
 				<li>${features[1]}</li>
-				<li>${features[2] ? features[2] : "No More Features"}</li> 
+				<li>${features[2] ? features[2] : "No More Features"}</li>
 			</ol>
 		</div>
 		<div class="d-flex justify-content-center">
 			<hr style="width: 90%" />
 		</div>
-		<div class="card-body">
-			<h5 class="card-title">${name}</h5>
-			<div class="d-flex align-item-center">
-				<div>
-					<i class="fa-solid fa-calendar-days"></i>
+		<div class="card-body d-flex justify-content-between">
+			<div>
+				<h5 class="card-title">${name}</h5>
+				<div class="d-flex align-item-center">
+					<div>
+						<i class="fa-solid fa-calendar-days"></i>
+					</div>
+					<p class="card-text ps-2 date">${published_in}</p>
 				</div>
-				<p class="card-text ps-2 date">${published_in}</p>
+			</div>
+            <!-- Button trigger modal -->
+			<div>
+				<button
+					type="button"
+					class="btn"
+					data-bs-toggle="modal"
+					data-bs-target="#staticBackdrop"
+				>
+					<i
+						class="fa-solid fa-circle-arrow-right fa-3x rounded-5"
+						style="color: #fef7f7; background-color: #eb5757"
+					></i>
+				</button>
 			</div>
 		</div>
 	</div>

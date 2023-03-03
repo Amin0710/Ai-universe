@@ -46,16 +46,6 @@
 			</section>
 
 			<!-- Details Modals -->
-			<!-- Button trigger modal -->
-			<button
-				type="button"
-				class="btn btn-primary"
-				data-bs-toggle="modal"
-				data-bs-target="#staticBackdrop"
-			>
-				Launch static backdrop modal
-			</button>
-
 			<!-- Modal -->
 			<div
 				class="modal fade"
@@ -66,7 +56,7 @@
 				aria-labelledby="staticBackdropLabel"
 				aria-hidden="true"
 			>
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
 						<div id="close" class="border-0">
 							<button
@@ -80,13 +70,11 @@
 								></i>
 							</button>
 						</div>
-						<div class="modal-body pt-5">
+						<div class="modal-body">
 							<div class="container-fluid">
-								<div class="row border">
-									<div class="row">
-										<div class="col-8 col-sm-6">Level 2: .col-8 .col-sm-6</div>
-										<div class="col-4 col-sm-6">Level 2: .col-4 .col-sm-6</div>
-									</div>
+								<div id="modal_data" class="row">
+									<div class="col-6">Level 2: .col-8 .</div>
+									<div class="col-6">Level 2: .col-4 .</div>
 								</div>
 							</div>
 						</div>
@@ -112,6 +100,7 @@
 		<script src="JS/loadData.js"></script>
 		<script src="JS/addCards.js"></script>
 		<script src="JS/sortByDate.js"></script>
+		<script src="JS/modalData.js"></script>
 		<script src="JS/app.js"></script>
 		<!-- Font Awesome -->
 		<script
