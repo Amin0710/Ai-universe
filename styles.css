@@ -58,3 +58,19 @@ p {
 	font-size: 16px;
 	font-weight: 400;
 }
+/* position of accuracy button */
+.image-container {
+	position: relative;
+}
+.button-container {
+	position: absolute;
+	top: 7px;
+	right: 7px;
+}
+
+@media (max-width: 576px) {
+	.flex-col-small {
+		display: flex;
+		flex-direction: column;
+	}
+}
