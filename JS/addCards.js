@@ -34,10 +34,11 @@ function addCard(id, image, name, features, published_in) {
             <!-- Button trigger modal -->
 			<div>
 				<button
+					id="modal_button_${id}"
 					type="button"
 					class="btn modal_buttons"
 					data-bs-toggle="modal"
-					data-bs-target="#staticBackdrop"
+					data-bs-target="#modal_${id}"
 				>
 					<i
 						class="fa-solid fa-circle-arrow-right fa-3x rounded-5"
@@ -49,4 +50,17 @@ function addCard(id, image, name, features, published_in) {
 	</div>
 `;
 	cards.appendChild(card);
+
+	// call modal loaded data
+	const modalButtons = document.getElementsByClassName("modal_buttons");
+
+	for (i = 1; i <= modalButtons.length; i++) {
+		let id_to_use = "01";
+		if (i < 10) {
+			id_to_use = "0" + `${i}`;
+		} else {
+			id_to_use = `${i}`;
+		}
+		loadModals(id_to_use);
+	}
 }
