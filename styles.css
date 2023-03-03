@@ -17,3 +17,14 @@ p {
 .card-img-top {
 	height: 80%;
 }
+/* Remove box baground form close button */
+#close_btn {
+	background-color: transparent;
+	border: 0px;
+}
+/* close button on the corner for no good reason*/
+#close {
+	position: absolute;
+	top: -20px;
+	right: -20px;
+}

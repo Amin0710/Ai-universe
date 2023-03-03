@@ -46,6 +46,53 @@
 			</section>
 
 			<!-- Details Modals -->
+			<!-- Button trigger modal -->
+			<button
+				type="button"
+				class="btn btn-primary"
+				data-bs-toggle="modal"
+				data-bs-target="#staticBackdrop"
+			>
+				Launch static backdrop modal
+			</button>
+
+			<!-- Modal -->
+			<div
+				class="modal fade"
+				id="staticBackdrop"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="staticBackdropLabel"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div id="close" class="border-0">
+							<button
+								id="close_btn"
+								type="button"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							>
+								<i
+									class="text-danger fa-solid fa-circle-xmark fa-2x bg-white rounded-5"
+								></i>
+							</button>
+						</div>
+						<div class="modal-body pt-5">
+							<div class="container-fluid">
+								<div class="row border">
+									<div class="row">
+										<div class="col-8 col-sm-6">Level 2: .col-8 .col-sm-6</div>
+										<div class="col-4 col-sm-6">Level 2: .col-4 .col-sm-6</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
 
 		<!-- bottom -->
