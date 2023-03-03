@@ -1,3 +1,4 @@
+/* fonst weights */
 .card-title {
 	font-weight: 600;
 }
@@ -6,4 +7,13 @@ ol {
 }
 p {
 	font-weight: 500;
+}
+
+/* card images */
+.card_img_holder {
+	height: 300px;
+	margin: 25px;
+}
+.card-img-top {
+	height: 80%;
 }

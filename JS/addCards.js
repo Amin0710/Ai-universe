@@ -4,7 +4,7 @@ function addCard(image, name, features, published_in) {
 	card.classList.add("col");
 	card.innerHTML = `
     <div class="card h-100">
-		<img src="${image}" class="card-img-top" alt="..." />
+    <div class="card_img_holder"><img src="${image}" class="card-img-top rounded-3" alt="..." /></div>
 		<div class="card-body">
 			<h5 class="card-title">Features</h5>
 			<ol class="card-text">
