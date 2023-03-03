@@ -1,4 +1,4 @@
-function addCard(image, name, features, published_in) {
+function addCard(id, image, name, features, published_in) {
 	const cards = document.getElementById("cards_holder");
 	const card = document.createElement("div");
 	card.classList.add("col");
@@ -8,11 +8,13 @@ function addCard(image, name, features, published_in) {
 			<img src="${image}" class="card-img-top rounded-3" alt="..." />
 		</div>
 		<div class="card-body">
-			<h5 class="card-title">Features</h5>
+			<h5 class="card-title head-text">Features</h5>
 			<ol class="card-text">
-				<li>${features[0]}</li>
-				<li>${features[1]}</li>
-				<li>${features[2] ? features[2] : "No More Features"}</li>
+				<li class="text-secondary body-text" >${features[0]}</li>
+				<li class="text-secondary body-text" >${features[1]}</li>
+				<li class="text-secondary body-text" >${
+					features[2] ? features[2] : "No More Features"
+				}</li>
 			</ol>
 		</div>
 		<div class="d-flex justify-content-center">
@@ -20,19 +22,20 @@ function addCard(image, name, features, published_in) {
 		</div>
 		<div class="card-body d-flex justify-content-between">
 			<div>
-				<h5 class="card-title">${name}</h5>
+				<h5 class="card-title head-text">${name}</h5>
 				<div class="d-flex align-item-center">
 					<div>
-						<i class="fa-solid fa-calendar-days"></i>
+						<i class="fa-solid fa-calendar-days text-secondary"></i>
 					</div>
-					<p class="card-text ps-2 date">${published_in}</p>
+					<p class="card-text ps-2 date text-secondary body-text">${published_in}</p>
 				</div>
 			</div>
+
             <!-- Button trigger modal -->
 			<div>
 				<button
 					type="button"
-					class="btn"
+					class="btn modal_buttons"
 					data-bs-toggle="modal"
 					data-bs-target="#staticBackdrop"
 				>

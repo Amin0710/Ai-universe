@@ -1,7 +1,4 @@
 /* fonst weights */
-.card-title {
-	font-weight: 600;
-}
 ol {
 	font-weight: 400;
 }
@@ -27,4 +24,34 @@ p {
 	position: absolute;
 	top: -20px;
 	right: -20px;
+}
+/* I need a MOTA modal */
+.modal {
+	--bs-modal-width: 70% !important;
+}
+
+.modal_col_1 {
+	border: 1px solid #eb5757;
+	background-color: #eb57570d;
+}
+.per_month_box {
+	height: 100px;
+	width: 132px;
+	border-radius: 16px;
+}
+.per_month_box p {
+	font-family: Inter;
+	font-size: 16px;
+	font-weight: 700;
+	height: 100%;
+}
+
+.head-text {
+	font-size: 25px;
+	font-weight: 600;
+	line-height: 35px;
+}
+.body-text {
+	font-size: 16px;
+	font-weight: 400;
 }

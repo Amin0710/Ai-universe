@@ -21,7 +21,7 @@ function distributeData(ais, showNumber) {
 	}
 
 	for (const ai of ais) {
-		addCard(ai.image, ai.name, ai.features, ai.published_in);
+		addCard(ai.id, ai.image, ai.name, ai.features, ai.published_in);
 	}
 	toggleSpinner(false); // end
 }
