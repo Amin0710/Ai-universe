@@ -32,9 +32,9 @@ function addModalData(data) {
 					<div id="modal_data" class="container-fluid">
 						<div class="row p-lg-5 m-lg-5">
 							<div
-								class="col-lg-6 col-sm-12 modal_col_1 rounded-4 p-lg-5"
+								class="col-lg-6 col-sm-12 modal_col_1 rounded-4 p-lg-3"
 							>
-								<h5 class="head-text">${data.description}</h5>
+								<h5 class="head-text p-lg-5 pb-lg-1">${data.description}</h5>
 								<div
 									class="d-flex justify-content-between my-4 flex-col-small"
 								>
@@ -43,9 +43,11 @@ function addModalData(data) {
 									>
 										<p class="text-center p-3 d-flex align-items-center">
 											${
-												data.pricing[0]
-													? data.pricing[0].price
-													: "Free of Cost" + "/" + data.pricing[0].plan
+												data.pricing === null
+													? "Free of Cost"
+													: data.pricing[0]?.price
+													? data.pricing[0].price + " " + data.pricing[0].plan
+													: "Free of Cost" + "/ " + data.pricing[0].plan
 											}
 										</p>
 									</div>
@@ -54,9 +56,11 @@ function addModalData(data) {
 									>
 										<p class="text-center p-3 d-flex align-items-center">
 											${
-												data.pricing[1]
-													? data.pricing[1].price
-													: "Free of Cost" + "/" + data.pricing[1].plan
+												data.pricing === null
+													? "Free of Cost"
+													: data.pricing[1]?.price
+													? data.pricing[1].price + " " + data.pricing[1].plan
+													: "Free of Cost" + "/ " + data.pricing[1].plan
 											}
 										</p>
 									</div>
@@ -65,9 +69,11 @@ function addModalData(data) {
 									>
 										<p class="text-center p-3 d-flex align-items-center">
 											${
-												data.pricing[2]
-													? data.pricing[2].price
-													: "Free of Cost" + "/" + data.pricing[2].plan
+												data.pricing === null
+													? "Free of Cost"
+													: data.pricing[2]?.price
+													? data.pricing[2].price + " " + data.pricing[2].plan
+													: "Free of Cost" + "/ " + data.pricing[2].plan
 											}
 										</p>
 									</div>
@@ -77,13 +83,25 @@ function addModalData(data) {
 										<h5 class="card-title head-text">Features</h5>
 										<ul class="card-text">
 											<li class="text-secondary body-text">
-												${data.features[0] ? data.features[0].feature_name : "No Data Found"}
+												${
+													data.features !== null && data.features[1]
+														? data.features[1].feature_name
+														: "No Data Found"
+												}
 											</li>
 											<li class="text-secondary body-text">
-												${data.features[1] ? data.features[1].feature_name : "No Data Found"}
+												${
+													data.features !== null && data.features[2]
+														? data.features[2].feature_name
+														: "No Data Found"
+												}
 											</li>
 											<li class="text-secondary body-text">
-												${data.features[2] ? data.features[2].feature_name : "No Data Found"}
+												${
+													data.features !== null && data.features[3]
+														? data.features[3].feature_name
+														: "No Data Found"
+												}
 											</li>
 										</ul>
 									</div>
@@ -91,13 +109,25 @@ function addModalData(data) {
 										<h5 class="card-title head-text">Integrations</h5>
 										<ul class="card-text">
 											<li class="text-secondary body-text">
-												${data.integrations[0] ? data.integrations[0] : "No Data Found"}
+												${
+													data.integrations !== null && data.integrations[0]
+														? data.integrations[0]
+														: "No Data Found"
+												}
 											</li>
 											<li class="text-secondary body-text">
-												${data.integrations[1] ? data.integrations[1] : "No Data Found"}
+												${
+													data.integrations !== null && data.integrations[1]
+														? data.integrations[1]
+														: "No Data Found"
+												}
 											</li>
 											<li class="text-secondary body-text">
-												${data.integrations[2] ? data.integrations[2] : "No Data Found"}
+												${
+													data.integrations !== null && data.integrations[2]
+														? data.integrations[2]
+														: "No Data Found"
+												}
 											</li>
 										</ul>
 									</div>
@@ -107,8 +137,12 @@ function addModalData(data) {
 							<div class="col-lg-6 col-sm-12 border rounded-4 p-lg-4">
 								<div class="image-container">
 									<div class="button-container">
-										<button class="btn btn-danger py-1 px-3 rounded-3">
-											${data.accuracy ? data.accuracy.score * 100 + "% accuracy" : ""}
+										<button id="accuracy_${data.id}" class="btn btn-danger py-1 px-3 rounded-3">
+											${
+												data.accuracy !== null && data.accuracy.score
+													? data.accuracy.score * 100 + "% accuracy"
+													: ""
+											}
 										</button>
 									</div>
 									<img
@@ -120,6 +154,7 @@ function addModalData(data) {
 								</div>
 								<h5 class="text-center head-text pt-4 pb-2">
 									${
+										data.input_output_examples !== null &&
 										data.input_output_examples[0]
 											? data.input_output_examples[0].input
 											: "No Data Found"
@@ -127,6 +162,7 @@ function addModalData(data) {
 								</h5>
 								<p class="text-center text-secondary body-text">
 									${
+										data.input_output_examples !== null &&
 										data.input_output_examples[0]
 											? data.input_output_examples[0].output
 											: "No Data Found"
@@ -141,4 +177,9 @@ function addModalData(data) {
 	</div>`;
 
 	modals.appendChild(modalData);
+
+	const accuracy_id = document.getElementById(`accuracy_${data.id}`);
+	if (accuracy_id.innerHTML.trim() === "") {
+		accuracy_id.classList.add("d-none");
+	}
 }
