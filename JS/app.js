@@ -16,6 +16,8 @@ document.getElementById("btn-show-all").addEventListener("click", function () {
 });
 
 // sort by dates
+let clickCount = 0;
 document.getElementById("sort").addEventListener("click", function () {
-	sortByDates();
+	clickCount++;
+	sortByDates(clickCount);
 });
