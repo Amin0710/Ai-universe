@@ -157,7 +157,7 @@ function addModalData(data) {
 										data.input_output_examples !== null &&
 										data.input_output_examples[0]
 											? data.input_output_examples[0].input
-											: "No Data Found"
+											: "Can you give any example?"
 									}
 								</h5>
 								<p class="text-center text-secondary body-text">
@@ -165,7 +165,7 @@ function addModalData(data) {
 										data.input_output_examples !== null &&
 										data.input_output_examples[0]
 											? data.input_output_examples[0].output
-											: "No Data Found"
+											: "No! Not Yet! Take a break!!!"
 									}
 								</p>
 							</div>
